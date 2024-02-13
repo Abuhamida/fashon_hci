@@ -12,7 +12,7 @@ export default class page extends Component {
         <input type="password" placeholder="Password" className="input input-bordered w-full " />
         <Link href={''} className=" bg-black rounded-full text-white w-full text-center my-5 py-[13.5px] px-[20px] hover:bg-primary">SIGN IN</Link>
         </div>
-        <h2 className="text-[#717275] text-xl">Don’t have an account? <Link href={'sign-up'} className=" hover:text-primary cursor-pointer">Create One</Link> </h2>
+        <h2 className="text-[#717275] text-xl font-thin text-center px-7">Don’t have an account? <Link href={'sign-up'} className=" hover:text-primary cursor-pointer">Create One</Link> </h2>
       </div>
     );
   }
