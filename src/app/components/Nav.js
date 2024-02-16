@@ -6,14 +6,14 @@ import { usePathname } from "next/navigation";
 export default function Nav() {
   const navData = [
     { name: "home", path: "/" },
-    { name: "store", path: "/store" },
+    { name: "story", path: "/story" },
     { name: "FAQs", path: "/FAQs" },
     { name: "products", path: "/products" },
     { name: "contact", path: "/contact" },
   ];
   const router = usePathname();
   return (
-    <div className="navbar bg-base-100 py-[25px] lg:px-24 flex justify-between items-center">
+    <div className="navbar bg-base-100 py-[25px] flex justify-between items-center">
       <div className="">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -71,7 +71,7 @@ export default function Nav() {
           ))}
         </ul>
       </div>
-      <div className=" text-secondary cursor-pointer ml-4  text-2xl flex gap-7 ">
+      <div className=" text-secondary cursor-pointer md:ml-4  text-2xl flex gap-5 md:gap-7 pr-2 lg:pr-24">
         <Link href="/sign-in" className="hover:text-primary translate-x-1 duration-75 ">
           <CgProfile />
         </Link>

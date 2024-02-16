@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   const router = usePathname();
   return (
-    <html lang="en" data-theme="light" className="selection:text-white selection:bg-primary">
+    <html lang="en" data-theme="light" className="selection:text-white selection:bg-primary font-sans">
       <body className={inter.className}>
         <AnimatePresence mode="wait">
           <motion.div key={router} className=" w-full ">
