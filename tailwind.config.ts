@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -17,10 +18,11 @@ const config: Config = {
         'primary': '#ff4400',
         'secondary': '#717275',
         'accent': '#f0f8ff',
+        'white_gray':'#d0d1d1'
       },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),],
   daisyui: {
     themes: ["light", "dark", "cupcake"],
   },

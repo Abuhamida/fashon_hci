@@ -2,11 +2,48 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
-
-*{
-    font-family: 'Inter', sans-serif;
+* {
+  font-family: "Inter", sans-serif;
 }
 
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 0px);
+}
+
+.swiper-pagination-bullet {
+    width: 16%;
+    height: 1.5px;;
+  text-align: center;
+  border-radius: inherit;
+  color: #000;
+  opacity: 1;
+  background: rgba(0, 0, 0, 0.2);
+  margin: 0 -10px;
+}
+
+.swiper-pagination-bullet:hover {
+  background: #000000;
+  cursor: pointer;
+}
+.swiper-pagination-bullet-active {
+  background: #000000;
+}
+
+
+@keyframes fadeOut {
+  0% {
+      opacity: 50%; 
+  }
+  100% {
+      opacity: 100%;
+  }
+}
+
+.fade-out {
+  animation-name: fadeOut;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+}
