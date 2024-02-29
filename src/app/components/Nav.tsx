@@ -34,7 +34,7 @@ export default function Nav() {
           </div>
           <ul
             tabIndex={0}
-            className="dropdown-content mt-3 z-[1] p-5 shadow bg-base-100 rounded-box w-72 h-72 mx-2 flex flex-col items-start gap-5"
+            className="dropdown-content mt-3 p-5 shadow bg-base-100 rounded-box w-72 h-72 mx-2 flex flex-col items-start gap-5 z-50"
           >
             {navData.map((item, index) => (
               <Link
@@ -57,7 +57,7 @@ export default function Nav() {
         </Link>
       </div>
       <div className=" hidden lg:flex  ">
-        <ul className=" text-secondary  px-1 flex gap-10">
+        <ul className=" text-secondary  px-1 flex gap-10 z-50">
           {navData.map((item, index) => (
             <Link
               href={item.path}

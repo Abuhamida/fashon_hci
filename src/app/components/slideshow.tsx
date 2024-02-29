@@ -7,7 +7,7 @@ export default function Slideshow() {
   React.useEffect(() => {
     const interval = setInterval(() => {
       setActive((prev) => (prev + 1) % Data_Slidshow.length);
-    }, 7000);
+    }, 3000);
     return () => clearInterval(interval);
   }, []);
 
@@ -16,7 +16,7 @@ export default function Slideshow() {
   };
 
   return (
-    <div className=" relative flex flex-col gap-2 items-center justify-center w-full pb-[3rem] md:pb-[7rem] mt-4">
+    <div className=" relative flex flex-col gap-2 items-center justify-center w-full pb-[3rem] md:pb-[7rem] ">
       {Data_Slidshow.map((slide, index) => (
         <div
           key={index}
@@ -42,13 +42,13 @@ export default function Slideshow() {
           </div>
         </div>
       ))}
-      <div className=" absolute right-5 lg:right-28 flex flex-col justify-center items-end w-full h-full gap-5 z-50 ">
+      <div className=" absolute right-5 lg:right-28 flex flex-col justify-center items-end w-full h-full gap-5 z-10 ">
         {Data_Slidshow.map((_, index) => (
           <div
             key={index}
             className={` ${
               active == index ? " bg-white border-white" : " border-[#5f5e5e]"
-            } w-5 h-5 border-2 md:w-8 md:h-8 rounded-full md:border-4  hover:bg-white hover:border-white cursor-pointer z-50`}
+            } w-5 h-5 border-2 md:w-8 md:h-8 rounded-full md:border-4  hover:bg-white hover:border-white cursor-pointer z-10`}
             onClick={() => handleActive(index)}
           ></div>
         ))}
