@@ -75,7 +75,7 @@ export default function Nav() {
         <Link href="/sign-in" className="hover:text-primary translate-x-1 duration-75 ">
           <CgProfile />
         </Link>
-        <Link href="/cart" className="hover:text-primary translate-x-1 duration-75 ">
+        <Link href="/products" className="hover:text-primary translate-x-1 duration-75 ">
           <FaBagShopping />
         </Link>
       </div>
