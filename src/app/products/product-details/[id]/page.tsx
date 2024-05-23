@@ -3,23 +3,31 @@ import { category } from "@/app/data/Data_Products";
 import Favorite from "@/app/components/Favorite";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Product_model from "@/app/components/product_model";
 
-export default function Page({ params }: { params: { name: string } }) {
-  const product = category.find((p) =>
-    p.products.find((p) => p.link === params.name)
-  );
-  const category_ = product?.name;
-  const selected_product = product?.products.find(
-    (p) => p.link === params.name
-  );
+export default function Page({ params }: { params: { id: string } }) {
+  const [product, setProduct] = useState(Object || null);
+  useEffect(() => {
+    const getProduct = async () => {
+      const response = await fetch(
+        `https://fakestoreapi.com/products/${params.id}`
+      );
+      if (response.ok) {
+        const product = await response.json();
+        setProduct(product);
+      }
+    };
+    getProduct();
+  }, []);
 
-  const [quantity, setQuantity] = useState<number>(0);
+ 
+
+  const [quantity, setQuantity] = useState<number>(1);
 
   const handleQuantity = (e: any) => {
     const inputValue = parseInt(e.target.value, 10);
-    if (!isNaN(inputValue) && inputValue <= (selected_product?.numbers ?? 0)) {
+    if (!isNaN(inputValue) && inputValue <= (product?.numbers ?? 0)) {
       setQuantity(inputValue);
     }
   };
@@ -45,32 +53,32 @@ export default function Page({ params }: { params: { name: string } }) {
       </div>
       <div className="flex flex-col lg:flex-row gap-10 w-full justify-center py-[3rem] lg:py-[5rem] px-5 lg:px-24 ">
         <div className="w-full">
-          <Image src={selected_product?.image ?? ""} alt=""></Image>
+          <Image src={product?.image ?? ""} width={400} height={400} alt=""></Image>
         </div>
         <div className="w-full flex flex-col ">
           <div className="flex flex-col gap-2 w-full py-10">
             <div className="flex justify-between w-full items-center">
               <h1 className="text-4xl text-black font-black">
-                {selected_product?.name}
+                {product?.title}
               </h1>
               <h3 className=" text-sm text-secondary">
-                {selected_product?.price}$
+                {product?.price}$
               </h3>
             </div>
             <div>
               <p className=" text-sm text-secondary ">
-                {selected_product?.details}
+                {product?.details}
               </p>
             </div>
           </div>
           <div className="flex flex-col py-5">
             <h1 className="text-lg text-black font-bold">Description</h1>
             <p className=" text-2xl text-secondary font-thin font-sans">
-              {selected_product?.Description}
+              {product?.description}
             </p>
           </div>
           <div className="flex flex-col lg:flex-row py-3 justify-between gap-5 w-full items-center">
-            <select
+            {/* <select
               title="Quantity"
               className="w-full p-5 border"
               onChange={handleQuantity}
@@ -87,11 +95,11 @@ export default function Page({ params }: { params: { name: string } }) {
                     </option>
                   )
                 )}
-            </select>
+            </select> */}
             <button
               onClick={() => {
-                setModelData(selected_product);
-                handelModel(selected_product);
+                setModelData(product);
+                handelModel(product);
               }}
               className="p-5 bg-black text-white w-full hover:bg-primary text-center"
             >
@@ -102,7 +110,7 @@ export default function Page({ params }: { params: { name: string } }) {
             <Link href={"#"} className=" hover:text-primary ">
               Details
             </Link>
-            <Link href={"#"} className=" hover:text-primary ">
+            <Link href={"/cart"} className=" hover:text-primary ">
               Delivery and Payment
             </Link>
           </div>
@@ -115,7 +123,7 @@ export default function Page({ params }: { params: { name: string } }) {
         </h1>
         <div className="">
           {category.map((item, index) =>
-            item.name === category_ ? (
+            item.name === product.category ? (
               <div
                 className="flex flex-wrap justify-center items-center gap-10"
                 key={index}
@@ -146,6 +154,9 @@ export default function Page({ params }: { params: { name: string } }) {
                             className="max-w-96"
                             src={product.image}
                             alt={product.name}
+                            width={400}
+
+                            height={400}
                           />
                         </figure>
                       </Link>

@@ -24,7 +24,7 @@ const Transition = () => {
   return (
     <>
       <motion.div
-        className="fixed left-0 right-0 bottom-full w-screen z-30 bg-[#ffffff]"
+        className="fixed left-0 right-0 bottom-full w-screen z-50 bg-[#ffffff]"
         variants={transitionvariants}
         initial="initial"
         animate="animate"

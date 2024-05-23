@@ -96,5 +96,44 @@ export const category = [
   },
 ];
 
+// Generic function to fetch products by category
+export const fetchProductsByCategory = async (category:any) => {
+  // Replace spaces and special characters in the category name
+  let formattedCategory = category.replace(/ /g, '%20').replace(/'/g, '%27');
+  const response = await fetch(`https://fakestoreapi.com/products/category/${formattedCategory}`);
+  if (response.ok) {
+    const products = await response.json();
+    return products;
+  } else {
+    console.error("HTTP error:", response.status);
+    return null;
+  }
+};
 
+// Specific function to fetch women's clothing
+export const fetchWomensClothing = async () => {
+  return await fetchProductsByCategory("women's clothing");
+};
+
+// Specific function to fetch men's clothing
+export const fetchMensClothing = async () => {
+  return await fetchProductsByCategory("men's clothing");
+};
+
+// Using the functions to fetch and log the products
+
+
+const getRandomProducts = (products:any, count:any) => {
+  const shuffled = products.sort(() => 0.5 - Math.random());
+  return shuffled.slice(0, count);
+};
+
+export const getProducts = async () => {
+  const womensProducts = await fetchWomensClothing();
+  const mensProducts = await fetchMensClothing();
+
+  const combinedProducts = [...womensProducts, ...mensProducts];
+  const randomProducts = getRandomProducts(combinedProducts, 6);
+return randomProducts
+};
 

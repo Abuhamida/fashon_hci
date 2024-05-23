@@ -31,13 +31,13 @@ export default function Slideshow() {
             alt={slide.alt}
             className=" object-cover object-center w-screen scale-110 "
           />
-          <div className="absolute  top-0 bg-black/20 pl-2 lg:pl-28 w-full h-full select-none flex flex-col gap-5 md:gap-10 justify-center items-start ">
+          <div className="absolute  top-0 bg-black/20 pl-2 lg:pl-28 w-full h-full select-none flex flex-col gap-5 md:gap-10 justify-center items-start  ">
             <div className="flex flex-col gap-2 md:gap-10">
               <p className="text-white text-2xl md:text-7xl text- font-sans font-black ">{slide.title}</p>
               <p className="text-gray-300 text-xl md:text-2xl font-sans font-light max-w-[90%] lg:max-w-[75%] ">{slide.description}</p>
             </div>
-            <div>
-              <Link href={slide.link_herf} className="bg-black text-white text-sm lg:text-base p-5 rounded-full hover:bg-primary font-bold">{slide.link_text}</Link>
+            <div className="z-20">
+              <Link href={slide.link_herf} className="bg-black text-white text-sm lg:text-base p-5 z-10 rounded-full hover:bg-primary font-bold">{slide.link_text}</Link>
             </div>
           </div>
         </div>

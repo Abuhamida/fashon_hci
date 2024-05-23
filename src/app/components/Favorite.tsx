@@ -10,8 +10,8 @@ export default function Favorite() {
   return (
     <div>
       <div
-        className={`flex flex-col justify-center items-center absolute p-5 right-0 cursor-pointer z-10 hover:text-primary ${
-          favorite ? "text-primary" : "text-white"
+        className={`flex flex-col justify-center items-center absolute p-2 right-3 top-3 cursor-pointer z-10 hover:text-primary ${
+          favorite ? "text-primary" : "text-white  active:text-white" 
         } `}
         onClick={handleFavorite}
       >

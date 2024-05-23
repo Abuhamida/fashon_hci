@@ -2,13 +2,13 @@
 "use client";
 import Image from "next/image";
 import header_img from "@/images/header/businesspeople-meeting-office-working.jpg";
-import { FaCirclePlus } from "react-icons/fa6";
+import { FaInfoCircle } from "react-icons/fa";
 import { Data } from "@/app/data/Data_story";
 import Story_model from "../components/Story_model";
 import { useState } from "react";
 import Testimonial from "../components/Testimonial";
 export default function page() {
-  const [model_data, setModelData] = useState<number | null>(null); 
+  const [model_data, setModelData] = useState<number | null>(null);
 
   const handelModel = (index: number) => {
     setModelData(index);
@@ -68,7 +68,7 @@ export default function page() {
                   handelModel(index);
                 }}
               >
-                <FaCirclePlus />
+                <FaInfoCircle />
               </div>
             </div>
           ))}
